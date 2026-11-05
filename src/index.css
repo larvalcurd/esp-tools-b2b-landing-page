@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+
+  --color-esp-red: #d23333;
+  --color-esp-red-dark: #b02a2a;
+  --color-esp-dark: #1a1a2e;
+  --color-esp-gray: #f5f5f5;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-sans text-gray-900 antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: #d23333;
+  color: #ffffff;
+}
+
+/* Offset anchored sections below the sticky navbar */
+section[id],
+footer[id],
+div[id="service"] {
+  scroll-margin-top: 84px;
+}
+
+/* Hide scrollbar for the horizontal product strip while keeping scrollability */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
